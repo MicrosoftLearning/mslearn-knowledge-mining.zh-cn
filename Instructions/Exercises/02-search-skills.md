@@ -12,7 +12,7 @@ Azure AI 搜索使用 AI 技能的扩充管道从文档中提取 AI 生成的字
 
 ## 准备在 Visual Studio Code 中开发应用
 
-你将使用 Visual Studio Code 开发搜索应用。 应用程序的代码文件已在 GitHub repo 中提供。
+你可以使用 Visual Studio Code 开发搜索应用。 应用程序的代码文件已在 GitHub repo 中提供。
 
 > **提示**：如果已克隆 **mslearn-knowledge-mining** 存储库，请在 Visual Studio Code 中打开它。 否则，请按照以下步骤将其克隆到开发环境中。
 
@@ -146,7 +146,7 @@ Azure AI 搜索使用 AI 技能的扩充管道从文档中提取 AI 生成的字
     - **函数应用名称**：唯一的名称
     - **发布**：代码
     - **运行时堆栈**：Node.js
-    - **版本**：14 LTS
+    - **版本**：18 LTS
     - 区域****：与 Azure AI 搜索资源相同的区域**
 
 2. 等待部署完成，然后转到部署的函数应用资源。
