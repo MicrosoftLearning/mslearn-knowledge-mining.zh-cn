@@ -17,9 +17,9 @@ lab:
 
 1. 安装 [VS Code](https://code.visualstudio.com/)
 1. 安装 [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools)
-1. 安装 VSCode 的 Azure Tools 扩展[](https://code.visualstudio.com/docs/azure/extensions)
+1. 安装 [VSCode 的 Azure Tools 扩展](https://code.visualstudio.com/docs/azure/extensions)
 1. 为操作系统安装 [Python 3.8](https://www.python.org/downloads/release/python-380/)。
-1. 安装 VSCode 的 Python 扩展[](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+1. 安装 [VSCode 的 Python 扩展](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 
 ## 设置 Azure 资源
 
@@ -197,7 +197,7 @@ lab:
     ![显示数据连接信息的屏幕截图。](../media/04-media/connect-data.png)
 1. 在“数据源”中，选择“Azure Blob 存储”********。
 1. 在“数据源名称”中，输入“movie-summaries”********。
-1. 选择“选择现有连接”，然后选择存储帐户，接着选择刚刚创建的容器，搜索数据。********
+1. 选择“选择现有连接”，然后选择存储帐户，接着选择刚刚创建的容器“search-data”。********
 1. 选择“添加认知技能(可选)”。****
 1. 展开“附加 AI 服务 ”部分，然后选择“免费”下的 Azure AI 服务。****
 
@@ -345,7 +345,7 @@ lab:
 
 你需要一个位置来存储新函数应用返回的扩充。 按照以下步骤添加新复合字段，以存储文本分类和置信度分数。
 
-1. 在 Azure 门户中，转到包含你的搜索服务的资源组，然后选择你创建的认知搜索服务，例如 acs18245-search-service。[](https://portal.azure.com/)****
+1. 在 [Azure 门户](https://portal.azure.com/)中，转到包含你的搜索服务的资源组，然后选择你创建的认知搜索服务，例如 acs18245-search-service。****
 1. 在“概述”窗格上，选择“索引”********。
 1. 选择 azurebob-index****。
 1. 选择“编辑 JSON”。****
