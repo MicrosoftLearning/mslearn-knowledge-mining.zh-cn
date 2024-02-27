@@ -167,8 +167,7 @@ Azure 门户假定需要翻译文档中的第一个字段。 所以它目前正�
 
 ### 测试更新的索引
 
-1. 在页面顶部，选择搜索服务“advanced-search-service-12345 | 索引”链接。****
-1. 在“概述”窗格中，选择“索引”，然后选择“hotels-sample-index”。
+1. 返回到“hotels-sample-index”页的“搜索资源管理器”选项卡。********
 1. 在“查询字符串”中，输入与之前相同的搜索：
 
     `lake + view&$select=HotelName,Description,Category,Tags&$count=true`
