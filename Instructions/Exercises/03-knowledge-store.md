@@ -18,7 +18,7 @@ Azure AI 搜索使用 AI 技能的扩充管道从文档中提取 AI 生成的字
 
 你可以使用 Visual Studio Code 开发搜索应用。 应用程序的代码文件已在 GitHub repo 中提供。
 
-> **提示**：如果已克隆 mslearn-knowledge-mining**** 存储库，请在 Visual Studio Code 中打开它。 否则，请按照以下步骤将其克隆到开发环境中。
+> **提示**：如果已克隆 **mslearn-knowledge-mining** 存储库，请在 Visual Studio Code 中打开它。 否则，请按照以下步骤将其克隆到开发环境中。
 
 1. 启动 Visual Studio Code。
 1. 打开面板 (SHIFT+CTRL+P) 并运行“**Git：克隆**”命令，以将 `https://github.com/MicrosoftLearning/mslearn-knowledge-mining` 存储库克隆到本地文件夹（任意文件夹均可）。
@@ -39,14 +39,14 @@ Azure AI 搜索使用 AI 技能的扩充管道从文档中提取 AI 生成的字
 6. 右键单击 03-knowledge-store**** 文件夹，选择“在集成终端中打开”****。
 7. 在终端窗格中输入以下命令，与 Azure 订阅建立经过身份验证的连接。
 
-    ```
+    ```powershell
     az login --output none
     ```
 
 8. 根据提示登录到 Azure 订阅。 然后，返回到 Visual Studio Code 并等待登录过程完成。
 9. 运行以下命令以列出 Azure 位置。
 
-    ```
+    ```powershell
     az account list-locations -o table
     ```
 
@@ -54,8 +54,8 @@ Azure AI 搜索使用 AI 技能的扩充管道从文档中提取 AI 生成的字
 11. 在 setup.cmd 脚本中，使用订阅 ID、资源组名称和位置名称的适当值修改 subscription_id、resource_group 和 location 变量声明。 保存更改。
 12. 在 03-knowledge-store 文件夹的终端中，输入以下命令来运行脚本****：
 
-    ```
-    setup
+    ```powershell
+    ./setup
     ```
     > **注意**：“搜索 CLI”模块为预览版，可能会卡在“- 正在运行…” 映像。 如果这种情况超过 2 分钟，请按 CTRL+C 取消该长时间运行的操作，然后在系统询问是否要终止脚本时选择“N”。 然后就应该可以成功完成。
     >
@@ -131,8 +131,8 @@ Azure AI 搜索使用 AI 技能的扩充管道从文档中提取 AI 生成的字
 4. 右键单击 create-search 文件夹，选择“在集成终端中打开”。
 5. 在 create-search 文件夹的终端窗格中，输入以下命令运行批处理脚本。
 
-    ```
-    create-search
+    ```powershell
+    ./create-search
     ```
 
 6. 脚本完成后，在 Azure 门户的 Azure AI 搜索资源页上，选择“索引器”**** 页，然后等待索引过程完成。
@@ -151,11 +151,11 @@ Azure AI 搜索使用 AI 技能的扩充管道从文档中提取 AI 生成的字
 
 1. 在 Azure 门户中，查看之前创建的 Azure 存储帐户。
 2. （在左侧窗格中）选择“存储浏览器”选项卡，在 Azure 门户的存储资源管理器界面中查看存储帐户。
-2. 展开“Blob 容器”，查看存储帐户中的容器。 除了存储源数据的 margies 容器，还应有两个新的容器：margies-images 和 margies-knowledge。 这些容器都是由索引过程创建的。
-3. 选择 margies-knowledge 容器。 对于每个索引文档，它都应包含一个文件夹。
-4. 打开任意一个文件夹，然后下载并打开其中包含的 knowledge-projection.json 文件。 每个 JSON 文件都包含一个索引文档的表示形式，包括由技能组提取的扩充数据，如下所示。
+3. 展开“Blob 容器”，查看存储帐户中的容器。 除了存储源数据的 margies 容器，还应有两个新的容器：margies-images 和 margies-knowledge。 这些容器都是由索引过程创建的。
+4. 选择 margies-knowledge 容器。 对于每个索引文档，它都应包含一个文件夹。
+5. 打开任意一个文件夹，然后下载并打开其中包含的 knowledge-projection.json 文件。 每个 JSON 文件都包含一个索引文档的表示形式，包括由技能组提取的扩充数据，如下所示。
 
-```
+```json
 {
     "file_id":"abcd1234....",
     "file_name":"Margies Travel Company Info.pdf",
@@ -191,7 +191,7 @@ Azure AI 搜索使用 AI 技能的扩充管道从文档中提取 AI 生成的字
 
 在索引过程中，技能组中定义的文件投影会为从文档中提取的每个图像都创建 JPEG 文件。
 
-1. 在 Azure 门户的存储资源管理器界面中，选择 margies-images blob 容器。 该容器会为每个包含图像的文档包含一个文件夹。
+1. 在 Azure 门户的“存储浏览器”界面中，选择“margies-images”blob 容器。****** 该容器会为每个包含图像的文档包含一个文件夹。
 2. 打开任意文件夹并查看其内容，每个文件夹至少包含一个 \*.jpg 文件。
 3. 打开任意图像文件，确认其包含从文档中提取的图像。
 
@@ -201,7 +201,7 @@ Azure AI 搜索使用 AI 技能的扩充管道从文档中提取 AI 生成的字
 
 技能组中定义的表投影构成了扩充数据的关系架构。
 
-1. 在 Azure 门户的存储资源管理器界面中，展开“表”。
+1. 在 Azure 门户的“存储浏览器界面”中，展开“表”。******
 2. 选择 docs 表以查看其列。 这些列包括一些标准的 Azure 存储表列；要隐藏它们，请修改“列选项”以仅选择以下列：
     - document_id（由索引过程自动生成的键列）
     - file_id（编码的文件 URL）

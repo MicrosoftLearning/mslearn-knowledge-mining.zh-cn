@@ -39,14 +39,14 @@ Azure AI 搜索使用 AI 技能的扩充管道从文档中提取 AI 生成的字
 1. 右键单击 02-search-skill 文件夹，选择“在集成终端中打开”********。
 1. 在终端窗格中输入以下命令，与 Azure 订阅建立经过身份验证的连接。
 
-    ```
+    ```powershell
     az login --output none
     ```
 
 8. 根据提示，选择或登录到 Azure 订阅。 然后，返回到 Visual Studio Code 并等待登录过程完成。
 9. 运行以下命令以列出 Azure 位置。
 
-    ```
+    ```powershell
     az account list-locations -o table
     ```
 
@@ -54,7 +54,7 @@ Azure AI 搜索使用 AI 技能的扩充管道从文档中提取 AI 生成的字
 11. 在 setup.cmd 脚本中，使用订阅 ID、资源组名称和位置名称的适当值修改 subscription_id、resource_group 和 location 变量声明。 保存更改。
 12. 在 02-search-skill 文件夹的终端中，输入以下命令运行脚本****：
 
-    ```
+    ```powershell
     ./setup
     ```
 
@@ -109,7 +109,7 @@ Azure AI 搜索使用 AI 技能的扩充管道从文档中提取 AI 生成的字
 14. 右键单击 create-search 文件夹，选择“在集成终端中打开”。
 15. 在 create-search 文件夹的终端窗格中，输入以下命令运行批处理脚本。
 
-    ```
+    ```powershell
     ./create-search
     ```
 
@@ -150,7 +150,7 @@ Azure AI 搜索使用 AI 技能的扩充管道从文档中提取 AI 生成的字
     - 区域****：与 Azure AI 搜索资源相同的区域**
 
 2. 等待部署完成，然后转到部署的函数应用资源。
-3. 在函数应用的“概述”页中，在页面下方的部分中，选择“函数”选项卡****。然后，在门户中使用以下设置创建一个新函数：
+3. 在“概述”页上，选择“在 Azure 门户中创建”选项，以使用下面的设置创建新函数：********
     - **设置开发环境**
         - **开发环境**：在门户中进行开发
     - **选择模板**
@@ -262,7 +262,7 @@ module.exports = async function (context, req) {
 6. 保存函数，然后打开“测试/运行”窗格。
 7. 在“测试/运行”**** 窗格中，将现有正文**** 替换为以下 JSON，以反映 Azure AI 搜索技能所需的架构，在该架构中，将提交包含一个或多个文档数据的记录以进行处理：
 
-    ```
+    ```json
     {
         "values": [
             {
@@ -284,10 +284,10 @@ module.exports = async function (context, req) {
         ]
     }
     ```
-    
+
 8. 单击“运行”，并查看函数返回的 HTTP 响应内容。 这反映了 Azure AI 搜索在使用技能时所需的架构，在该架构中返回每个文档的响应。 在本例中，响应包含每个文档中出现次数最多的 10 个词，并以出现频率降序排列：
 
-    ```
+    ```json
     {
         "values": [
         {
@@ -348,7 +348,7 @@ module.exports = async function (context, req) {
 13. 右键单击 update-search 文件夹，选择“在集成终端中打开”。
 14. 在 update-search 文件夹的终端窗格中，输入以下命令运行批处理脚本。
 
-    ```
+    ```powershell
     ./update-search
     ```
 

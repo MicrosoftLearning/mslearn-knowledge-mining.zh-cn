@@ -86,7 +86,7 @@ lab:
 3. 保存更改，然后右键单击“**01-azure-search**”文件夹并打开集成终端。
 4. 使用 Azure CLI，输入以下命令以登录到你的 Azure 订阅。
 
-    ```
+    ```powershell
     az login
     ```
 
@@ -94,7 +94,7 @@ lab:
 
 5. 输入以下命令以运行批处理文件。 这将在你的存储帐户中创建一个 blob 容器，并将 data 文件夹中的文档上传到该容器中。
 
-    ```
+    ```powershell
     UploadDocs
     ```
 
@@ -243,7 +243,7 @@ lab:
 4. 在 Visual Studio Code 中的 skillset.json**** 中，将 YOUR_COGNITIVE_SERVICES_KEY**** 占位符替换为复制到剪贴板的 Azure AI 服务密钥。
 5. 滚动浏览 JSON 文件，注意它包含在 Azure 门户中使用 Azure AI 搜索用户界面创建的技能定义。 在技能列表底部，以使用以下定义添加额外的技能：
 
-    ```
+    ```json
     {
         "@odata.type": "#Microsoft.Skills.Text.V3.SentimentSkill",
         "defaultLanguageCode": "en",
@@ -279,7 +279,7 @@ lab:
 2. 滚动浏览索引并查看字段定义。 某些字段基于源文档中的元数据和内容，还有的来自于技能和技能组。
 3. 在你在 Azure 门户中定义的字段列表的末尾，注意添加了两个额外的字段：
 
-    ```
+    ```json
     {
         "name": "sentiment",
         "type": "Edm.String",
@@ -306,19 +306,18 @@ lab:
 1. 在 Visual studio Code 中，在“modify-search”文件夹中打开“indexer.json”。 这将显示 margies-indexer 的 JSON 定义，它将由文档内容和元数据提取的字段（位于 fieldMappings 部分）和由技能组中的技能提取到的值（位于 outputFieldMappings 部分）映射到索引中的字段。
 2. 在 fieldMappings 列表中，注意 metadata_storage_path 值到 base-64 编码密钥字段的映射。 这是在你在 Azure 门户中将 metadata_storage_path 分配为密钥并选择编码选项时创建的。 此外，新映射将相同的值显式映射到 url 字段，但没有 Base-64 编码：
 
-    ```
+    ```json
     {
         "sourceFieldName" : "metadata_storage_path",
         "targetFieldName" : "url"
-    }
-    
+    }    
     ```
 
     源文档中的其他所有元数据和内容字段都隐式映射到索引中具有相同名称的字段。
 
 3. 查看 ouputFieldMappings 部分，它将技能组中技能的数据映射到索引字段。 其中大部分结果都反映了你在用户界面中的选择，但还添加了以下映射，将由情绪识别技能提取的 sentimentLabel 值映射到你添加到索引的 sentiment 字段 ：
 
-    ```
+    ```json
     {
         "sourceFieldName": "/document/sentimentLabel",
         "targetFieldName": "sentiment"
@@ -330,7 +329,7 @@ lab:
 1. 右键单击 modify-search 文件夹并打开集成终端。
 2. 在 modify-search 文件夹的终端窗格中，输入以下命令以运行 modify-search.cmd 脚本，它会将 JSON 定义提交到 REST 接口并启动索引编制。
 
-    ```
+    ```powershell
     ./modify-search
     ```
 

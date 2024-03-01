@@ -1,26 +1,26 @@
 ---
 lab:
-  title: 设置语义搜索
+  title: 设置语义排序器
 ---
 
-# 设置语义搜索
+# 设置语义排序器
 
-> 注意：要完成此实验室，需要一个你在其中具有管理权限的 [Azure 订阅](https://azure.microsoft.com/free?azure-portal=true)。 本练习还需要具有计费层的 Azure AI 搜索服务。
+> 注意：要完成此实验室，需要一个你在其中具有管理权限的 [Azure 订阅](https://azure.microsoft.com/free?azure-portal=true)。 本练习还需要具有计费层的“Azure AI 搜索”服务。****
 
-在本练习中，你将向索引添加语义搜索，并使用语义搜索进行查询。
+在本练习中，你将向索引添加语义排序器，并对查询使用语义排序器。
 
-## 启用语义搜索
+## 启用语义排序器
 
 1. 转到 Azure 门户并登录。
 1. 选择“所有资源”并选择你的搜索服务****。
-1. 在导航窗格中，选择“语义搜索(预览版)”****。
+1. 在导航窗格中，选择“语义排序器（预览版）”。****
 1. 在“**可用性**”的“**免费**”选项中，选择“**选择计划**”。
 
-![语义搜索对话框的屏幕截图。](../media/semantic-search/semanticsearch.png)
+![语义排序器对话框的屏幕截图。](../media/semantic-search/semanticsearch.png)
 
 ## 导入示例索引
 
-1. 在 Azure 门户主页中选择“所有资源”，然后选择你的搜索服务****。
+1. 返回到搜索服务的“概述”页。****
 1. 选择“导入数据”。
 
     ![“导入数据”按钮的屏幕截图。](../media/semantic-search/importdata.png)
@@ -33,11 +33,10 @@ lab:
 
 ## 配置语义排名
 
-启用搜索索引和语义搜索后，可以配置语义排名。 需要支持查询请求上的预览 API 的搜索客户端。 可以在 Azure 门户、Postman 应用、用于 .NET 的 Azure SDK 或用于 Python 的 Azure SDK 中使用搜索资源管理器。 在本练习中，你将在 Azure 门户中使用搜索资源管理器。
+启用搜索索引和语义排序器后，就可以配置语义排序了。 需要支持查询请求上的预览 API 的搜索客户端。 可以在 Azure 门户、Postman 应用、用于 .NET 的 Azure SDK 或用于 Python 的 Azure SDK 中使用搜索资源管理器。 在本练习中，你将在 Azure 门户中使用搜索资源管理器。
 
 若要配置语义排名，请执行以下步骤：
 
-1. 在 Azure 门户主页中选择“所有资源”，然后选择你的搜索服务****。
 1. 在导航栏上的“搜索管理”中，选择“索引”********。
 
     ![“索引”按钮的屏幕截图。](../media/semantic-search/indexes.png)
@@ -53,26 +52,20 @@ lab:
 1. 在“**关键字字段**”下，在“**字段名称**”中，选择“**标记**”。
 1. 选择“保存”。
 1. 在索引页上，选择“保存”****。
-1. 在 Azure 门户主页中选择“所有资源”，然后选择你的搜索服务****。
-1. 在导航栏上的“搜索管理”中，选择“索引”********。
-
-    ![“索引”按钮的屏幕截图。](../media/semantic-search/indexes.png)
-
-1. 选择你的索引。
 1. 选择“**搜索资源管理器**”。
 1. 选择“**视图**”并选择“**JSON 视图**”。
 1. 在 JSON 查询编辑器类型中，输入以下文本：
 
     ```json
         {
-            "queryType": "semantic",
-            "queryLanguage" : "en-us",
-            "search": "all hotels near the water" , 
-            "semanticConfiguration": "hotels-conf" , 
-            "searchFields": "",
-            "speller": "lexicon" , 
-            "answers": "extractive|count-3",
-            "count": true
+         "queryType": "semantic",
+         "queryLanguage" : "en-us",
+         "search": "all hotels near the water" , 
+         "semanticConfiguration": "hotels-conf" , 
+         "searchFields": "",
+         "speller": "lexicon" , 
+         "answers": "extractive|count-3",
+         "count": true
         }
     ```
 
@@ -85,5 +78,5 @@ lab:
 
 >**注意**：删除 Azure AI 搜索服务可确保不会向你的订阅收取相应资源的费用。 但是，只要订阅中存在存储的数据，就需要为数据存储支付少量费用。 如果已完成认知搜索服务的探索，则可以删除认知搜索服务和相关资源。 但是，如果计划完成本系列中任何其他实验室，则需要重新创建它。
 > 删除资源：
-> 1. 在 [Azure 门户](https://portal.azure.com?azure-portal=true)的“**资源组**”页面中，打开在创建认知搜索服务时指定的资源组。
+> 1. 在 [Azure 门户](https://portal.azure.com?azure-portal=true )的“**资源组**”页面中，打开在创建认知搜索服务时指定的资源组。
 > 1. 单击“删除资源组”，键入资源组名称以确认要删除资源组，然后选择“删除”。
