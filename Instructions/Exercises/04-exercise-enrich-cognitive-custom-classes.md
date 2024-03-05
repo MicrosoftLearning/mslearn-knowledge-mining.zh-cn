@@ -17,9 +17,9 @@ lab:
 
 1. 安装 [VS Code](https://code.visualstudio.com/)
 1. 安装 [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools)
-1. 安装 [VSCode 的 Azure Tools 扩展](https://code.visualstudio.com/docs/azure/extensions)
+1. 安装 VSCode 的 Azure Tools 扩展[](https://code.visualstudio.com/docs/azure/extensions)
 1. 为操作系统安装 [Python 3.8](https://www.python.org/downloads/release/python-380/)。
-1. 安装 [VSCode 的 Python 扩展](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+1. 安装 VSCode 的 Python 扩展[](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 
 ## 设置 Azure 资源
 
@@ -31,7 +31,7 @@ lab:
 
     ![将资源部署到 Azure 时显示的选项的屏幕截图。](../media/04-media/deploy-azure-resources.png)
 1. 在“资源组”中，选择“新建”并将其命名为 cog-search-language-exe。
-1. 在“区域”中，选择离你较近的[受支持区域](/azure/ai-services/language-service/custom-text-classification/service-limits#regional-availability)。
+1. 在“区域”中，选择离你较近的[受支持区域](https://learn.microsoft.com/azure/ai-services/language-service/concepts/regional-support)。
 1. 资源前缀需要全局唯一，请输入随机数字和小写字母前缀，例如 acs18245********。
 1. 在“位置”中，选择和上面选择的相同区域。
 1. 选择“查看 + 创建”。
@@ -78,12 +78,13 @@ lab:
 
 1. 在 Azure 门户中选择“资源组”，然后选择你的资源组****。[](https://portal.azure.com/)
 1. 选择你创建的存储帐户，例如“acs18245str”。****
+1. 从左侧窗格中选择“配置”，针对“允许 Blob 匿名访问”设置选择“启用”选项，然后选择页面顶部的“保存”**************。
 
     ![显示如何创建新的存储容器的屏幕截图。](../media/04-media/select-azure-blob-storage.png)
+
 1. 从左侧选择“容器”，然后选择“+ 容器”********。
 1. 在“新建容器”窗格的“名称”中，输入“language-studio-training-data”************。
-1. 在“匿名访问级别”中，选择“容器（对容器和 Blob 进行匿名读取访问）”。********
-1. 选择**创建**。
+1. 在“匿名访问级别”中，选择“容器(对容器和 Blob 进行匿名读取访问)”，然后选择“创建”************。
 1. 选择刚刚创建的新容器 language-studio-training-data****。
     ![将文件上传到容器的屏幕截图。](../media/04-media/upload-files.png)
 1. 选择窗格顶部的“上传”****。
@@ -95,8 +96,8 @@ lab:
 ### 创建语言资源
 
 1. 在页面顶部的痕迹导航链接中，选择“主页”****。
+1. 选择“+ 创建资源”**** 并搜索“语言服务”**。
 1. 在“语言服务”下选择“创建”。********
-1. 选择**创建**。
 1. 选择包含“自定义文本分类”和“自定义命名实体识别”的选项****。
 
     ![显示添加自定义文本分类功能的屏幕截图。](../media/04-media/select-additional-features.png)
@@ -116,7 +117,7 @@ lab:
 
     ![显示选择启动“语言工作室”的位置的屏幕截图。](../media/04-media/started-language-studio.png)
 1. 向下滚动到“概述”窗格，并选择“Language Studio入门”********。
-1. 如果系统提示选择语言资源，请选择之前创建的资源。
+1. 登录 Language Studio。 如果系统提示选择语言资源，请选择之前创建的资源。
 
 ### 在 Language Studio 中创建新的自定义文本分类项目
 
@@ -197,9 +198,9 @@ lab:
     ![显示数据连接信息的屏幕截图。](../media/04-media/connect-data.png)
 1. 在“数据源”中，选择“Azure Blob 存储”********。
 1. 在“数据源名称”中，输入“movie-summaries”********。
-1. 选择“选择现有连接”，然后选择存储帐户，接着选择刚刚创建的容器“search-data”。********
+1. 选择“选择现有连接”，然后选择存储帐户，接着选择刚刚创建的容器，搜索数据。********
 1. 选择“添加认知技能(可选)”。****
-1. 展开“附加 AI 服务 ”部分，然后选择“免费”下的 Azure AI 服务。****
+1. 展开“附加 AI 服务”部分，然后选择先前创建的的 Azure AI 服务。****
 
     ![显示附加 Azure AI 服务的屏幕截图。](../media/04-media/attach-cognitive-services.png)
 1. 展开“添加扩充”部分。
@@ -221,7 +222,7 @@ lab:
 
 现在，你将创建认知搜索自定义技能集将调用的 Python 函数应用。 该函数应用将使用自定义文本分类器模型来扩充搜索索引。
 
-1. 在终端中，将此 GitHub 存储库克隆到计算机。
+1. 打开 VScode，并在终端中将此 GitHub 存储库克隆到计算机。
 
     ```bash
     git clone https://github.com/MicrosoftLearning/mslearn-doc-intelligence movie-genre-function
@@ -311,7 +312,7 @@ lab:
 
 这里有一个示例查询，可用于测试函数应用和分类器模型是否正常工作。
 
-1. 在左侧选择“资源管理器”，展开 customtectcla 文件夹，然后选择“sample.dat”************。
+1. 在左侧选择“资源管理器”，展开 customtextcla 文件夹，然后选择“sample.dat”************。
 
     ![显示示例 JSON 查询的屏幕截图。](../media/04-media/copy-sample-query.png)
 1. 复制该文件的内容。
@@ -345,7 +346,7 @@ lab:
 
 你需要一个位置来存储新函数应用返回的扩充。 按照以下步骤添加新复合字段，以存储文本分类和置信度分数。
 
-1. 在 [Azure 门户](https://portal.azure.com/)中，转到包含你的搜索服务的资源组，然后选择你创建的认知搜索服务，例如 acs18245-search-service。****
+1. 在 Azure 门户中，转到包含你的搜索服务的资源组，然后选择你创建的认知搜索服务，例如 acs18245-search-service。[](https://portal.azure.com/)****
 1. 在“概述”窗格上，选择“索引”********。
 1. 选择 azurebob-index****。
 1. 选择“编辑 JSON”。****
