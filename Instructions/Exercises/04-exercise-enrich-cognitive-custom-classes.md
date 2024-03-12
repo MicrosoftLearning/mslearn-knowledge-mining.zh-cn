@@ -222,13 +222,8 @@ lab:
 
 现在，你将创建认知搜索自定义技能集将调用的 Python 函数应用。 该函数应用将使用自定义文本分类器模型来扩充搜索索引。
 
-1. 打开 VScode，并在终端中将此 GitHub 存储库克隆到计算机。
-
-    ```bash
-    git clone https://github.com/MicrosoftLearning/mslearn-doc-intelligence movie-genre-function
-    ```
-
-1. 在 Visual Studio Code 中，打开刚刚克隆的“movie-genre-function”文件夹****。
+1. [下载所需文件](https://github.com/MicrosoftLearning/mslearn-knowledge-mining/raw/main/Labfiles/04-enrich-custom-classes/movie-genre-function.zip)并提取包含所有文件的文件夹。
+1. 打开 Visual Studio Code，打开刚刚下载的“movie-genre-function”文件夹****。
 
     ![显示“优化函数应用”对话框的 Visual Studio Code 屏幕截图。](../media/04-media/optimize-visual-studio-code.png)
 1. 如果已安装所有必需的扩展，系统会提示你优化项目。 选择**是**。
