@@ -12,7 +12,7 @@ lab:
 - [Postman](https://www.postman.com/downloads/) 应用
 - Azure 订阅
 - Azure AI 搜索服务
-- [Postman 示例集合](https://github.com/Azure/cognitive-search-vector-pr/tree/main/postman-collection)*Vector-Search-Quickstart.postman_collection v1.0 json*。
+- 该存储库中的 Postman 示例集合 - *Vector-Search-Quickstart.postman_collection v1.0 json*。
 
 > **请注意**如果需要，可在[此处](https://learn.microsoft.com/en-us/azure/search/search-get-started-rest)找到有关 Postman 应用的详细信息。
 
@@ -20,24 +20,24 @@ lab:
 
 首先通过执行以下步骤来设置项目：
 
-1. 记下认知搜索服务的 URL 和密钥********。
+1. 记下 Azure AI 搜索服务的 URL 和密钥********。
 
     ![服务名称和密钥的位置图示。](../media/vector-search/search keys.png)
 
-1. 下载 [Postman 示例集合](https://github.com/Azure/cognitive-search-vector-pr/tree/main/postman-collection)。 
+1. 下载 [Postman 示例集合](https://github.com/MicrosoftLearning/mslearn-knowledge-mining/blob/main/Labfiles/10-vector-search/Vector%20Search.postman_collection%20v1.0.json)。
 1. 通过选择“导入”按钮并将集合文件夹拖放到框中，打开 Postman 并导入集合****。
 
     ![“导入”对话框的图像](../media/vector-search/import.png)
 
 1. 选择“创建分支”按钮创建集合的分支并添加唯一名称****。
 1. 右键单击集合名称，然后选择“编辑”****。
-1. 选择“变量”选项卡，并使用认知搜索服务中的搜索服务和索引名称输入以下值****：
+1. 选择“变量”选项卡，并使用 Azure AI 搜索服务中的搜索服务和索引名称输入以下值****：
 
     ![显示变量设置示例的关系图](../media/vector-search/variables.png)
 
 1. 通过选择“保存”按钮保存更改****。
 
-可以向 Azure 认知搜索服务发送请求。
+可以向 Azure AI 搜索服务发送请求。
 
 ## 创建索引
 
