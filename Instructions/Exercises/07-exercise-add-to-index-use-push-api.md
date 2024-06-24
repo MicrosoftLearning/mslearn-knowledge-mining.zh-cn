@@ -15,7 +15,7 @@ lab:
 
 为了节省时间，请选择此 Azure 资源管理器模板来创建后面练习中需要的资源：
 
-1. [![部署到 Azure](../media/07-media/deploy-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoftLearning%2Fmslearn-doc-intelligence%2Fmain%2Fcognitive-search%2Fazuredeploy.json)。 选择此链接以创建 Azure 认知搜索服务。
+1. [将资源部署到 Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoftLearning%2Fmslearn-knowledge-mining%2Fmain%2FLabfiles%2F07-exercise-add-to-index-use-push-api%20lab-files%2Fazuredeploy.json) - 选择此链接以创建 Azure AI 资源。
     ![将资源部署到 Azure 时显示的选项的屏幕截图。](../media/07-media/deploy-azure-resources.png)
 1. 在“资源组”中，选择“新建”并将其命名为 cog-search-language-exe。
 1. 在“区域”中，选择离你较近的[受支持区域](/azure/ai-services/language-service/custom-text-classification/service-limits#regional-availability)。
