@@ -27,7 +27,7 @@ lab:
 
 ### 部署预生成的 ARM 模板
 
-1. [![部署到 Azure](../media/04-media/deploy-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoftLearning%2Fmslearn-doc-intelligence%2Fmain%2Fcognitive-search%2Fazuredeploy.json)。 选择此链接以创建起始资源。 可能需要将直接链接复制并粘贴到搜索栏中。[](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoftLearning%2Fmslearn-doc-intelligence%2Fmain%2Fcognitive-search%2Fazuredeploy.json)
+1. [![部署到 Azure](../media/04-media/deploy-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoftLearning%2Fmslearn-knowledge-mining%2Fmain%2FLabfiles%2F04-enrich-custom-classes%2Fazuredeploy.json)。 选择此链接以创建起始资源。 可能需要将直接链接复制并粘贴到搜索栏中。[](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoftLearning%2Fmslearn-knowledge-mining%2Fmain%2FLabfiles%2F04-enrich-custom-classes%2Fazuredeploy.json)
 
     ![将资源部署到 Azure 时显示的选项的屏幕截图。](../media/04-media/deploy-azure-resources.png)
 1. 在“资源组”中，选择“新建”并将其命名为 cog-search-language-exe。
@@ -69,12 +69,9 @@ lab:
 },
 ```
 
-1. 从 GitHub 下载[示例数据](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/language-service/Custom%20text%20classification/Custom%20multi%20classification%20-%20movies%20summary.zip)，将其保存在本地计算机。
+1. 导航到 Labfiles/04-enrich-custom-classes 并提取包含所有文件的 movies summary.zip 文件夹。********
 
-    ![显示选择要下载 tha 示例 zip 数据的位置的屏幕截图。](../media/04-media/download-sample-data.png)
-1. 打开“Custom multi classification - movies summary.zip”文件，并提取包含所有文件的文件夹****。
-
-    > 注意：可以使用这些文件在 Language Studio 中训练模型，还可以为 Azure 认知搜索中的所有文件编制索引。****
+    > 注意：你可以使用这些文件在 Language Studio 中训练模型，并且还将在 Azure AI 搜索中索引所有文件。****
 
 1. 在 Azure 门户中选择“资源组”，然后选择你的资源组****。[](https://portal.azure.com/)
 1. 选择你创建的存储帐户，例如“acs18245str”。****
@@ -89,7 +86,7 @@ lab:
     ![将文件上传到容器的屏幕截图。](../media/04-media/upload-files.png)
 1. 选择窗格顶部的“上传”****。
 1. 在“上传 Blob”窗格中，选择“浏览文件”********。
-1. 导航到下载示例文件的位置，选择所有文本 (`.txt`) 和 json (`.json`) 文件。
+1. 导航到你提取示例文件的位置，选择所有文本 (`.txt`) 和 json (`.json`) 文件。
 1. 在窗格中选择“上传”****。
 1. 关闭“上传 Blob”窗格****。
 
@@ -99,11 +96,7 @@ lab:
 1. 选择“+ 创建资源”**** 并搜索“语言服务”**。
 1. 在“语言服务”下选择“创建”。********
 1. 选择包含“自定义文本分类”和“自定义命名实体识别”的选项****。
-
-    ![显示添加自定义文本分类功能的屏幕截图。](../media/04-media/select-additional-features.png)
 1. 选择“继续创建资源”****。
-
-    ![显示创建语言服务所需的信息的屏幕截图。](../media/04-media/enter-language-service-information.png)
 1. 在“资源组”中，选择“cog-search-language-exe”********。
 1. 在“区域”中，选择上面使用的区域****。
 1. 在“名称”中，输入“learn-language-service-for-custom-text”********。 它必须全局唯一，因此可能需要在末尾添加一个任意数字或字符。

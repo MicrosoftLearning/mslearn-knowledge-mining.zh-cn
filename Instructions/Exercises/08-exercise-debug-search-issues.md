@@ -15,7 +15,7 @@ lab:
 
 在开始使用调试会话之前，需要创建 Azure 认知搜索服务。
 
-1. [![Azure 资源部署按钮。](../media/08-media/deploy-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-search-knowledge-mining%2Fmaster%2Fazuredeploy.json) 选择此按钮可在 Azure 门户中部署所需的所有资源。
+1. [将资源部署到 Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-search-knowledge-mining%2Fmain%2Fazuredeploy.json) - 选择此链接以部署 Azure 门户中所需的所有资源。
 
     ![已输入字段的 ARM 部署模板的屏幕截图。](../media/08-media/arm-template-deployment.png)
 
@@ -117,7 +117,7 @@ lab:
 1. 现在，需要确保技能组已附加到 Azure AI 服务资源，否则将命中基本引用，索引器将超时。 为此，请在左窗格中选择“技能集”，然后选择“hotels-sample-skillset”。********
 
     ![显示技能组列表的屏幕截图。](../media/08-media/update-skillset.png)
-1. 选择“AI 服务”选项卡，然后选择列表中的 AI 服务资源。****
+1. 选择“连接 AI 服务”****，然后选择列表中的 AI 服务资源。
 
     ![显示要附加到技能集的 Azure AI 服务资源的屏幕截图。](../media/08-media/skillset-attach-service.png)
 1. 选择“保存”。
