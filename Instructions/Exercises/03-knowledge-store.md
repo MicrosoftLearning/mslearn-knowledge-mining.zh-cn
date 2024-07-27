@@ -216,6 +216,13 @@ Azure AI 搜索使用 AI 技能的扩充管道从文档中提取 AI 生成的字
 
 能够创建表投影，就能够构建（例如，使用 Microsoft Power BI）查询关系模式的分析和报告解决方案。 自动生成的键列可用于联接查询中的表，例如返回特定文档中提到的所有位置。
 
+## 删除练习资源
+
+现已完成练习，请删除所有不再需要的资源。 删除 Azure 资源：
+
+1. 在 **Azure 门户**中，选择“资源组”。
+1. 选择不需要的资源组，然后选择“删除资源组”。****
+
 ## 详细信息
 
 要详细了解如何使用 Azure AI 搜索创建知识存储，请参阅 [Azure AI 搜索文档](https://docs.microsoft.com/azure/search/knowledge-store-concept-intro)。
