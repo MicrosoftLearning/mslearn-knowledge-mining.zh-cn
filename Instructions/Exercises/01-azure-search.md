@@ -56,7 +56,7 @@ lab:
     - **存储帐户名称**：输入唯一名称
     - **区域**：选择任何可用区域
     - **性能**：标准
-    - **复制**：本地冗余存储 (LRS)
+    - **冗余**：本地冗余存储 (LRS)
     - 在“高级”**** 选项卡上，选中“允许在单个容器上启用匿名访问”** 旁边的复选框
 2. 等待部署完成，然后转到部署的资源。
 3. 在“概述”页上，记下“订阅 ID”- 它标识着预配了存储帐户的订阅。
@@ -231,7 +231,7 @@ lab:
 1. 在 Azure 门户中，返回到 Azure AI 搜索资源的“概述”**** 页；在页面顶部查找资源的 Url****（类似于 https://resource_name.search.windows.net****）并将其复制到剪贴板。
 2. 在 Visual Studio Code 中，在“资源管理器”窗格中展开“**01-azure-search**”文件夹及其“**modify-search**”子文件夹，并选择“**modify-search.cmd**”来打开它。 你将使用此脚本文件来运行 cURL** 命令，以将 JSON 提交给 Azure AI 服务 REST 接口。
 3. 在 modify-search.cmd 中，将  YOUR_SEARCH_URL 占位符替换为你复制到剪贴板的 URL。
-4. 在 Azure 门户中，查看 Azure AI 搜索资源的“密钥”**** 页，并将“主管理员密钥”**** 复制到剪贴板。
+4. 在 Azure 门户的“设置”**** 部分，查看 Azure AI 搜索资源的“密钥”**** 页，并将“主管理员密钥”**** 复制到剪贴板。
 5. 在 Visual Studio Code 中，将 YOUR_ADMIN_KEY 占位符替换为你复制到剪贴板的密钥。
 6. 将更高保存到 modify-search.cmd（但暂时不要运行它！）
 
@@ -239,7 +239,7 @@ lab:
 
 1. 在 Visual studio Code 中，在“modify-search”文件夹中打开“skillset.json”。 这将显示 margies-skillset 的 JSON 定义。
 2. 在技能组定义的顶部，记下 cognitiveServices**** 对象，该对象用于将 Azure AI 服务资源连接到技能组。
-3. 在 Azure 门户中，打开 Azure AI 服务资源（不是<u></u> Azure AI 搜索资源！）并查看其“密钥”**** 页。 然后将 Key 1 粘贴到剪贴板。
+3. 在 Azure 门户中，打开 Azure AI 服务资源（不是<u></u> Azure AI 搜索资源！）并在“资源管理”**** 部分查看其“密钥和终结点”**** 页。 然后将“密钥 1”**** 粘贴到剪贴板。
 4. 在 Visual Studio Code 中的 skillset.json**** 中，将 YOUR_COGNITIVE_SERVICES_KEY**** 占位符替换为复制到剪贴板的 Azure AI 服务密钥。
 5. 滚动浏览 JSON 文件，注意它包含在 Azure 门户中使用 Azure AI 搜索用户界面创建的技能定义。 在技能列表底部，以使用以下定义添加额外的技能：
 
@@ -375,13 +375,13 @@ lab:
     **C#**
 
     ```
-    dotnet add package Azure.Search.Documents --version 11.1.1
+    dotnet add package Azure.Search.Documents --version 11.6.0
     ```
 
     **Python**
 
     ```
-    pip install azure-search-documents==11.0.0
+    pip install azure-search-documents==11.5.1
     ```
 
 3. 查看 margies-travel 文件夹的内容，注意它包含配置设置的文件：
@@ -461,7 +461,7 @@ margies-travel 文件夹包含 web 应用程序（Microsoft C# ASP.NET Razor web
     - **Mojave desert**（观察这个词在一些文档中被识别为位置）。
 10. 关闭包含 Margie's Travel 网站的浏览器标签页，并返回到 Visual Studio Code。 然后在 margies-travel 文件夹中 Python 终端中（dotnet 或 flask 应用程序在其中运行），按 Ctrl+C 以停止运行应用。
 
-## 删除练习资源
+## 清理
 
 现已完成练习，请删除所有不再需要的资源。 删除 Azure 资源：
 
