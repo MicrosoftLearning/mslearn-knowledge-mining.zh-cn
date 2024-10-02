@@ -126,5 +126,6 @@ lab:
 
     ![显示一切已解决的屏幕截图。](../media/08-media/warnings-fixed-indexer.png)
 
-> [!TIP]
-> 完成练习后，如果你已完成对 Azure AI 搜索服务的学习，请删除在练习期间创建的 Azure 资源。 最简单的方法是删除 acs-cognitive-search-exercise 资源组。
+### 清理
+
+ 完成练习后，如果你已完成对 Azure AI 搜索服务的学习，请删除在练习期间创建的 Azure 资源。 最简单的方法是删除 acs-cognitive-search-exercise 资源组。
