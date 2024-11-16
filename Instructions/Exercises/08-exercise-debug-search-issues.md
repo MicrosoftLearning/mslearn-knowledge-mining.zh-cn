@@ -15,7 +15,7 @@ lab:
 
 在开始使用调试会话之前，需要创建 Azure 认知搜索服务。
 
-1. [将资源部署到 Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-search-knowledge-mining%2Fmain%2Fazuredeploy.json) - 选择此链接以部署 Azure 门户中所需的所有资源。
+1. [将资源部署到 Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoftLearning%2Fmslearn-knowledge-mining%2Fmain%2FLabfiles%2F08-debug-search%2Fazuredeploy.json) - 选择此链接以部署 Azure 门户中所需的所有资源。
 
     ![已输入字段的 ARM 部署模板的屏幕截图。](../media/08-media/arm-template-deployment.png)
 
