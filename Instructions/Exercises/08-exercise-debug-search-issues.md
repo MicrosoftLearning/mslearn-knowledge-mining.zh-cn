@@ -13,26 +13,25 @@ lab:
 
 ## 创建搜索解决方案
 
-在开始使用调试会话之前，需要创建 Azure 认知搜索服务。
+在开始使用调试会话之前，需要创建 Azure AI 搜索服务。
 
-1. [将资源部署到 Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoftLearning%2Fmslearn-knowledge-mining%2Fmain%2FLabfiles%2F08-debug-search%2Fazuredeploy.json) - 选择此链接以部署 Azure 门户中所需的所有资源。
+1. [将资源部署到 Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoftLearning%2Fmslearn-knowledge-mining%2Fmain%2FLabfiles%2F08-debug-search%2Fazuredeploy.json) - 如果位于托管 VM 中，请复制此链接并将其粘贴到 VM 浏览器中。 否则，选择此链接可在 Azure 门户中部署所需的所有资源。
 
     ![已输入字段的 ARM 部署模板的屏幕截图。](../media/08-media/arm-template-deployment.png)
 
-1. 在“资源组”下选择“新建”。
-1. 键入 acs-cognitive-search-exercise。
-1. 选择离你最近的“区域”。
-1. 对于“资源前缀”，请输入 acslearnex 并添加数字或字符的随机组合，以确保存储名称是唯一的。********
+1. 在“**资源组**”下，选择提供的资源组，或选择“**新建**”并键入 **debug-search-exercise**。
+1. 选择离你最近的“**区域**”，或使用默认值。
+1. 对于“**资源前缀**”，请输入 **acslearnex** 并添加数字或字符的随机组合，以确保存储名称是唯一的。
 1. 在“位置”中选择上面使用的相同区域。
 1. 在窗格底部，选择“查看 + 创建”。
 1. 等到资源部署完成，然后选择“转到资源组”。
 
-## 导入示例数据
+## 导入示例数据并配置资源
 
 已创建资源，现在可以导入源数据。
 
-1. 在列出的资源中，选择搜索服务。
-
+1. 在列出的资源中，导航到存储账户。 转到左窗格中的“**配置**”，将“**允许 Blob 匿名访问**”设置为“**已启用**”，然后选择“**保存**”。
+1. 导航回资源组，选择搜索服务。
 1. 在“概述”窗格上，选择“导入数据”。
 
       ![显示已选择导入数据菜单的屏幕截图。](../media/08-media/import-data.png)
@@ -59,41 +58,30 @@ lab:
 ![显示索引器上的 150 个警告的屏幕截图。](../media/08-media/indexer-warnings.png)
 
 1. 在左窗格中选择“调试会话”。****
-
 1. 选择“+ 添加调试会话”。
-
-1. 为存储连接字符串选择“选择现有连接”，然后选择你的存储帐户。****
-
-    ![显示选择连接的新调试会话的屏幕截图。](../media/08-media/connect-storage.png)
-1. 选择“+ 容器”来添加新容器。**** 将其命名为 acs-debug-storage。****
-
-    ![显示创建存储容器的屏幕截图。](../media/08-media/create-storage-container.png)
-
-1. 将“匿名访问级别”设置为“容器(对容器和 Blob 进行匿名读取访问)”。********
-
-    > **注意**：可能需要启用 Blob 匿名才能选择此选项。 为此，请在存储帐户中转到“配置”，将“允许 Blob 匿名访问”设置为“已启用”，然后选择“保存”。****************
-
-1. 选择**创建**。
-1. 在列表中选择新容器，然后选中“选择”。****
-1. 为“索引器模板”选择“hotel-sample-indexer”。********
-1. 选择“保存会话”。
+1. 提供会话名称，并为“**索引器模板”** 选择 **hotel-sample-indexer**。
+1. 从“**存储帐户**”字段中选择存储帐户。 这会自动创建存储容器，以便保存调试数据。
+1. 取消选中使用托管标识进行身份验证的复选框。
+1. 选择“保存”。
+1. 创建后，调试会话将自动在搜索服务中的数据上运行。 完成时应包含错误/警告。
 
     依赖项关系图显示，对于每个文档，有三个技能有错误。
-    ![显示扩充文档上的三个错误的屏幕截图。](../media/08-media/warning-skill-selection.png)
+    ![显示扩充文档上的三个错误的屏幕截图。](../media/08-media/debug-session-errors.png)
 
-1. 选择 V3。
+    > **备注**：你可能会看到有关连接到存储帐户和配置托管标识的错误。 如果在启用匿名 Blob 访问后尝试过快地进行调试，则会出现这种情况，但运行调试会话仍应正常工作。 几分钟后刷新浏览器窗口应会删除警告。
+
+1. 在依赖项关系图中，选择其中一个出现错误的技能节点。
 1. 在“技能详细信息”窗格中，选择“错误/警告(1)”。
-1. 展开“消息”列，以便查看详细信息。
 
     详细信息如下：
 
-    *无效的语言代码“（未知）”。支持的语言：ar、cs、da、de、en、es、fi、fr、hu、it、ja、ko、nl、no、pl、pt-BR、pt-PT、ru、sv、tr、zh-Hans。有关更多详细信息，请参阅 https://aka.ms/language-service/language-support。*
+    *无效语言代码“(未知)”。支持的语言：af、am、ar、as、az、bg、bn、bs、ca、cs、cy、da、de、el、en、es、et、eu、fa、fi、fr、ga、gl、gu、he、hi、hr、hu、hy、id、it、ja、ka、kk、km、kn、ko、ku、ky、lo、lt、lv、mg、mk、ml、mn、mr、ms、my、ne、nl、no、or、pa、pl、ps、pt-BR、pt-PT、ro、ru、sk、sl、so、sq、sr、ss、sv、sw、ta、te、th、tr、ug、uk、ur、uz、vi，zh-Hans，zh-Hant。有关其他详细信息，请参阅 https://aka.ms/language-service/language-support。*
 
-    如果回顾依赖项关系图，会发现“语言检测”技能有三个技能的输出，并带有警告。 导致错误的技能输入也是 `languageCode`。
+    如果回顾依赖项关系图，会发现“语言检测”技能对三种技能的输出都有错误。 如果查看包含错误的技能设置，将看到导致错误的技能输入是 `languageCode`。
 
 1. 在依赖项关系图中，选择“语言检测”。
 
-    ![显示语言检测技能的技能设置的屏幕截图。](../media/08-media/language-detection-error.png)
+    ![显示语言检测技能的技能设置的屏幕截图。](../media/08-media/language-detection-skill-settings.png)
     查看技能设置 JSON，请注意用于推断语言的字段是 `HotelId`。
 
     此字段将导致错误，因为技能无法基于 ID 推断语言。
@@ -101,20 +89,17 @@ lab:
 ## 解决索引器上的警告
 
 1. 在输入下选择“源”，并将字段更改为 `/document/Description`。****
-    ![显示固定技能的语言检测技能屏幕的屏幕截图。](../media/08-media/language-detection-fix.png)
 1. 选择“保存”。
-1. 选择“运行”。
+1. 选择“运行”。 索引器应不再显示任何错误或警告。 现在可以更新技能组。
 
-    ![显示更新技能后需要运行的屏幕截图。](../media/08-media/rerun-debug-session.png)
+    ![显示完整运行且没有错误的屏幕截图。](../media/08-media/debug-session-complete.png)
+   
+1. 选择“**提交更改**”，将此会话中所做的更改推送到索引器。
+1. 选择“确定”****。 现在可以删除会话。
 
-    索引器应不再显示任何错误或警告。 现在可以更新技能组。
+现在，需要确保技能组已附加到 Azure AI 服务资源，否则将命中基本配额，索引器将超时。 
 
-1. 选择“提交更改...”
-
-    ![显示问题已解决的屏幕截图。](../media/08-media/error-fixed.png)
-1. 选择“确定”。
-
-1. 现在，需要确保技能组已附加到 Azure AI 服务资源，否则将命中基本引用，索引器将超时。 为此，请在左窗格中选择“技能集”，然后选择“hotels-sample-skillset”。********
+1. 为此，请在左窗格中选择“技能集”，然后选择“hotels-sample-skillset”。********
 
     ![显示技能组列表的屏幕截图。](../media/08-media/update-skillset.png)
 1. 选择“连接 AI 服务”****，然后选择列表中的 AI 服务资源。
@@ -126,6 +111,6 @@ lab:
 
     ![显示一切已解决的屏幕截图。](../media/08-media/warnings-fixed-indexer.png)
 
-### 清理
+## 清理
 
- 完成练习后，如果你已完成对 Azure AI 搜索服务的学习，请删除在练习期间创建的 Azure 资源。 最简单的方法是删除 acs-cognitive-search-exercise 资源组。
+ 完成练习后，如果你已完成对 Azure AI 搜索服务的学习，请删除在练习期间创建的 Azure 资源。 最简单的方法是删除 **debug-search-exercise** 资源组。
