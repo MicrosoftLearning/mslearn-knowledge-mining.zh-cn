@@ -27,7 +27,7 @@ lab:
 
     ![显示所有已部署 Azure 资源的屏幕截图。](../media/07-media/azure-resources-created.png)
 
-### 复制 Azure AI 搜索服务 REST API 信息
+## 复制 Azure AI 搜索服务 REST API 信息
 
 1. 在资源列表中，选择已创建的搜索服务。 在上面的示例中，该服务为 acs118245-search-service****。
 1. 将搜索服务名称复制到文本文件中。
@@ -35,33 +35,18 @@ lab:
     ![搜索服务的密钥部分的屏幕截图。](../media/07-media/search-api-keys-exercise-version.png)
 1. 在左侧，选择“密钥”，然后将“主管理密钥”复制到同一文本文件中。
 
-### 下载示例代码
+## 下载要在 Visual Studio Code 中使用的示例代码
 
-选择 Azure 门户顶部的 Cloud Shell 按钮，打开 Azure Cloud Shell。
-> 注意**** 如果系统提示创建 Azure 存储帐户，请选择“创建存储”****。
+你将使用 Visual Studio Code 运行 Azure 示例代码。 此代码文件已在 GitHub 存储库中提供。
 
-1. 启动完成后，通过在 Cloud Shell 中运行以下命令克隆以下示例代码存储库：
+1. 启动 Visual Studio Code。
+1. 打开面板 (SHIFT+CTRL+P) 并运行“**Git：Clone**”命令，以将 `https://github.com/MicrosoftLearning/mslearn-knowledge-mining` 存储库克隆到本地文件夹（任意文件夹均可）。
+1. 克隆存储库后，在 Visual Studio Code 中打开文件夹。
+1. 等待其他文件安装完毕，以支持存储库中的 C# 代码项目。
 
-    ```powershell
-    git clone https://github.com/Azure-Samples/azure-search-dotnet-scale.git samples
-    ```
+    > **注意**：如果系统提示你添加生成和调试所需的资产，请选择**以后再说**。
 
-1. 通过运行以下命令转入新创建的目录：
-
-    ```powershell
-    cd samples
-    ```
-
-1. 然后运行：
-
-    ```powershell
-    code ./optimize-data-indexing/v11
-    ```
-
-1. 这将在 `/optimize-data-indexing/v11` 文件夹中打开 Cloud Shell 中的代码编辑器。
-
-    ![显示设置通知的 VS Code 屏幕截图。](../media/07-media/setup-visual-studio-code-solution.png)
-1. 在左侧导航中，展开 OptimizeDataIndexing 文件夹，然后选择 appsettings.json 文件。
+1. 在左侧导航中，展开“**optimize-data-indexing/v11/OptimizeDataIndexing**”文件夹，然后选择“**appsettings.json**”文件。
 
     ![显示 appsettings.json 文件内容的屏幕截图。](../media/07-media/update-app-settings.png)
 1. 粘贴搜索服务名称和主管理密钥。
@@ -76,36 +61,29 @@ lab:
 
     设置文件应该与上面类似。
 1. 通过按 CTRL + S 保存所做的更改****。
-1. 选择 OptimizeDataIndexing.csproj 文件****。 <!-- Added this and the next two steps in case we can't update the file in the repo that holds these (seems to be separate from the other labs)-->
-1. 在第五行，将 `<TargetFramework>netcoreapp3.1</TargetFramework>` 更改为 `<TargetFramework>net7.0</TargetFramework>`。 <!--- can be removed if no longer needed based on the above-->
-1. 通过按 CTRL + S 保存所做的更改****。<!--- can be removed if no longer needed based on the above-->
-1. 在终端中，输入 `cd ./optimize-data-indexing/v11/OptimizeDataIndexing`，然后按 Enter 转入正确的目录****。
-1. 选择 Program.cs 文件****。 然后在终端中输入 `dotnet run`，按 Enter****。
+1. 右键单击“**OptimizeDataIndexing**”文件夹，选择“**在集成终端中打开**”。
+1. 在终端中输入`dotnet run`，然后按 **Enter**。
 
     ![显示在 VS Code 中运行的应用出现异常的屏幕截图。](../media/07-media/debug-application.png)
-输出显示在这种情况下，性能最佳的批大小为 900 个文档， 每秒达到 3.688 MB。
+输出显示在这种情况下，性能最佳的批大小为 900 个文档， 当它达到每秒 6.071 MB 时。
 
-### 编辑代码以实现线程处理和退避重试策略
+## 编辑代码以实现线程处理和退避重试策略
 
 注释掉的代码可以更改应用，以使用线程将文档上传到搜索索引。
 
 1. 请确保你已经选择 Program.cs****。
 
     ![显示 Program.cs 文件的 VS Code 屏幕截图。](../media/07-media/edit-program-code.png)
-1. 注释掉第 38 行和第 39 行，如下所示：
+1. 对第 37 行和第 38 行注释禁止，如下所示：
 
     ```csharp
     //Console.WriteLine("{0}", "Finding optimal batch size...\n");
     //await TestBatchSizesAsync(searchClient, numTries: 3);
     ```
 
-1. 取消注释第 41 行到第 49 行。
+1. 对第 44 行到第 48 行取消注释。
 
     ```csharp
-    long numDocuments = 100000;
-    DataGenerator dg = new DataGenerator();
-    List<Hotel> hotels = dg.GetHotels(numDocuments, "large");
-
     Console.WriteLine("{0}", "Uploading using exponential backoff...\n");
     await ExponentialBackoff.IndexDataAsync(searchClient, hotels, 1000, 8);
 
@@ -122,7 +100,6 @@ lab:
 1. 选择终端，然后按任意键结束正在运行的进程（如果尚未执行）。
 1. 在终端中运行 `dotnet run`。
 
-    ![显示控制台中已完成消息的屏幕截图。](../media/07-media/upload-hundred-thousand-documents.png)
     应用将启动 8 个线程，然后在每个线程完成向控制台写入新消息时：
 
     ```powershell
@@ -162,7 +139,7 @@ lab:
 
 ![显示包含 100000 个文档的搜索索引的屏幕截图。](../media/07-media/check-search-service-index.png)
 
-### 清理
+## 清理
 
 现已完成练习，请删除所有不再需要的资源。 从克隆到计算机的代码开始。 然后删除 Azure 资源。
 
