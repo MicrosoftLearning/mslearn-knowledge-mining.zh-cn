@@ -17,7 +17,7 @@ Azure AI 搜索使用 AI 技能的扩充管道从文档中提取 AI 生成的字
 > **提示**：如果已克隆 **mslearn-knowledge-mining** 存储库，请在 Visual Studio Code 中打开它。 否则，请按照以下步骤将其克隆到开发环境中。
 
 1. 启动 Visual Studio Code。
-1. 打开面板 (SHIFT+CTRL+P) 并运行“**Git：Clone**”命令，以将 `https://github.com/MicrosoftLearning/mslearn-knowledge-mining` 存储库克隆到本地文件夹（任意文件夹均可）。
+1. 打开面板 (SHIFT+CTRL+P) 并运行“**Git：克隆**”命令，以将 `https://github.com/MicrosoftLearning/mslearn-knowledge-mining` 存储库克隆到本地文件夹（任意文件夹均可）。
 1. 克隆存储库后，在 Visual Studio Code 中打开文件夹。
 1. 等待其他文件安装完毕，以支持存储库中的 C# 代码项目。
 
@@ -146,11 +146,9 @@ Azure AI 搜索使用 AI 技能的扩充管道从文档中提取 AI 生成的字
     - 资源组****：与 Azure AI 搜索资源相同的资源组**
     - **函数应用名称**：唯一的名称
     - **运行时堆栈**：Node.js
-    - **版本**：20 LTS
+    - **版本**：18 LTS
     - 区域****：与 Azure AI 搜索资源相同的区域**
     - **操作系统**：Windows
-
->**备注**：如果创建 Azure AI 搜索资源的区域没有用于部署函数应用资源的可用配额，则可以选择订阅具有可用配额的其他区域进行部署。
 
 2. 等待部署完成，然后转到部署的函数应用资源。
 3. 在“概述”**** 页上，选择页面底部的“创建函数”**** 以使用以下设置新建函数：
