@@ -8,5 +8,5 @@ layout: home
 
 以下练习旨在支持 Microsoft Learn 上的模块。
 
-{% assign labs = site.pages | where_exp:"page", "page.url contains '/Instructions/Exercises'" %} {% for activity in labs  %}
+{% assign labs = site.pages | where_exp:"page", "page.url contains '/Instructions/Exercises'" %} {% for activity in labs  %} {% if activity.url contains 'ai-foundry' %} {% continue %} {% endif %}
 - [{{ activity.lab.title }}]({{ site.github.url }}{{ activity.url }}) {% endfor %}
