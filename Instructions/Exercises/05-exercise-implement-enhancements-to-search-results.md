@@ -83,29 +83,29 @@ Azure 门户假定需要翻译文档中的第一个字段。 所以它目前正�
 
 1. 在页面顶部，选择搜索服务“advanced-search-service-12345 | 索引”链接。****
 1. 在左窗格上的“搜索管理”下选择“技能集”，然后选择“hotels-sample-skillset”。********
-1. 编辑 JSON 文档，将第 11 行更改为：
+1. 编辑 JSON 文档，将第 9 行更改为：
 
     ```json
     "context": "/document/Description",
     ```
 
-1. 在第 12 行将默认语言更改为英语：
+1. 将第 11 行的默认语言更改为英语：
 
     ```json
     "defaultFromLanguageCode": "en",
     ```
 
-1. 将第 18 行的源字段更改为：
+1. 将第 15 行的源字段更改为：
 
     ```json
-    "source": "/document/Description"
+    "source": "/document/Description",
     ```
 
 1. 选择“保存”。
 1. 在页面顶部，选择搜索服务“advanced-search-service-12345 | 技能组”链接。****
 1. 在“概述”窗格中，选择“索引器”，然后选择“hotels-sample-indexer”。
-1. 选择“索引器定义(JSON)”。
-1. 将第 21 行的源字段名称更改为：
+1. 选择“编辑 JSON”。****
+1. 将第 20 行的源字段名称更改为：
 
     ```json
     "sourceFieldName": "/document/Description/Description_pt",
