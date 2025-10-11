@@ -71,7 +71,7 @@ lab:
 > **提示**：如果已克隆 **mslearn-knowledge-mining** 存储库，请在 Visual Studio Code 中打开它。 否则，请按照以下步骤将其克隆到开发环境中。
 
 1. 启动 Visual Studio Code。
-1. 打开面板 (SHIFT+CTRL+P) 并运行“**Git：克隆**”命令，以将 `https://github.com/MicrosoftLearning/mslearn-knowledge-mining` 存储库克隆到本地文件夹（任意文件夹均可）。
+1. 打开面板 (SHIFT+CTRL+P) 并运行“**Git：Clone**”命令，以将 `https://github.com/MicrosoftLearning/mslearn-knowledge-mining` 存储库克隆到本地文件夹（任意文件夹均可）。
 1. 克隆存储库后，在 Visual Studio Code 中打开文件夹。
 1. 等待其他文件安装完毕，以支持存储库中的 C# 代码项目。
 
